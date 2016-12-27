@@ -1,0 +1,71 @@
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events"
+                         xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events"
+                         xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<instrumentation>
+
+		<counters xmlns="http://schemas.microsoft.com/win/2005/12/counters" schemaVersion="1.1">
+
+			<provider callback="custom" applicationIdentity="SquidSrvPerf.dll" providerType="userMode" providerGuid="{8F74F48A-7E61-467C-8BC7-5D6C9EAD78F9}" symbol="SquidPerfProvider">
+
+				<counterSet guid="{D00D0961-45AC-435C-A0A7-1C9D4E394175}"
+							uri="SquidPerfProvider.CounterSet"
+							name="Squid service"
+							description="Squid service performance counters"
+                            instances="single"
+							symbol="PERF_SQUID">
+
+					<counter id="1"
+							 uri="SquidPerfProvider.CounterSet.CPUTemperature"
+							 name="CPU temperature (0.01 Celcius)"
+							 description="Calculated CPU temperature (average of all cores)"
+							 type="perf_counter_rawcount"
+							 detailLevel="standard"
+							 defaultScale="-2"
+							 symbol="PERF_SQUID_CPUTEMP">
+					</counter>
+
+					<counter id="2"
+							 uri="SquidPerfProvider.CounterSet.CPUTemperatureHyst"
+							 name="Mean CPU temperature (0.01 Celcius)"
+							 description="Calculated mean CPU temperature (average of last 5 samples)"
+							 type="perf_counter_rawcount"
+							 detailLevel="standard"
+							 defaultScale="-2"
+							 symbol="PERF_SQUID_CPUTEMP_HYST">
+					</counter>
+
+					<counter id="3"
+							 uri="SquidPerfProvider.CounterSet.WaterTemperature"
+							 name="Water temperature (0.01 Celcius)"
+							 description="Kraken water temperature"
+							 type="perf_counter_rawcount"
+							 detailLevel="standard"
+							 defaultScale="-2"
+							 symbol="PERF_SQUID_WATERTEMP">
+					</counter>
+					
+					<counter id="4"
+							 uri="SquidPerfProvider.CounterSet.PumpSpeed"
+							 name="Pump speed (rpm)"
+							 description="Kraken pump speed"
+							 type="perf_counter_rawcount"
+							 detailLevel="standard"
+							 defaultScale="-2"
+							 symbol="PERF_SQUID_PUMPSPEED">
+					</counter>
+					
+					<counter id="5"
+							 uri="SquidPerfProvider.CounterSet.FanSpeed"
+							 name="Fan speed (rpm)"
+							 description="Kraken fan speed"
+							 type="perf_counter_rawcount"
+							 detailLevel="standard"
+							 defaultScale="-2"
+							 symbol="PERF_SQUID_FANSPEED">
+					</counter>
+					
+				</counterSet>
+			</provider>
+		</counters>
+	</instrumentation>
+</instrumentationManifest>
